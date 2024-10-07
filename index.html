@@ -7,84 +7,119 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilo para o coração flutuante */
+        .heart {
+            position: absolute;
+            color: #f20d0d;
+            font-size: 2rem;
+            opacity: 0;
+            animation: float 4s ease-in-out forwards;
+        }
+
+        /* Animação do coração */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+
+        /* Estilo do corpo */
+        body {
+            background-color: #0b073d;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Ajustes para a imagem e contêiner */
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 75vw;
+            margin: 0 auto; /* Centraliza a imagem */
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        /* Estilo do texto */
+        .text-center {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Estilo do contador */
+        #time-counter {
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Estilo do coração */
+        .fa-heart {
+            color: #f20d0d;
+            font-size: 1.3rem;
+        }
+
+        /* Ajustes para o texto do parágrafo */
+        p {
+            word-wrap: break-word;
+            white-space: normal;
+            text-align: center;
+            width: 95%;
+            margin: 2rem auto; /* Espaçamento vertical */
+        }
+    </style>
 </head>
 
-<style>
-    /* Estilo para o coração flutuante */
-    .heart {
-        position: absolute;
-        color: #f20d0d;
-        font-size: 2rem;
-        opacity: 0;
-        animation: float 4s ease-in-out forwards;
-    }
-
-    /* Animação do coração */
-    @keyframes float {
-        0% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        100% {
-            transform: translateY(-200px);
-            opacity: 0;
-        }
-    }
-</style>
-
-<body style="background-color: #0b073d; font-family: 'Poppins', sans-serif;">
+<body>
     <main class="container py-5 text-white">
         <div class="text-center">
-            <div>
-                <!-- Container onde os corações serão adicionados -->
-                <div id="hearts-container" style="position: absolute; top: 0; left: 0; width: 90%; height: 80%;"></div>
-                <img id="main-image" src="img/03.jpg" class="rounded-3" alt="" srcset="" style="width: 75vw; height: 85vh;">
+            <div class="image-container">
+                <div id="hearts-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                <img src="img/03.jpg" class="rounded-3" alt="">
             </div>
-
             <span class="d-block mt-1">Juntos</span>
         </div>
 
-        <!-- Contador do tempo -->
         <div class="pt-2 pb-4 text-center">
             <div class="d-flex justify-content-center">
-                <span id="time-counter" class="d-block text-center" style="width: 80%;"></span>
+                <span id="time-counter" class="d-block"></span>
             </div>
-
-            <i class="fa-solid fa-heart mt-2" style="color: #f20d0d; font-size: 1.3rem;"></i>
+            <i class="fa-solid fa-heart mt-2"></i>
         </div>
 
         <div class="d-flex justify-content-center">
             <div class="w-25" style="border-bottom: 1px solid #ccc;"></div>
         </div>
 
-        <div class="d-flex justify-content-center  pt-4">
-            <p class="text-center" style="width: 95%; word-wrap: break-word; white-space: normal;">
-                Entre todos os mistérios do universo, o maior deles é como você faz meu coração acelerar só com um
-                sorriso. Quando estou ao seu lado, tudo parece mais leve. Você é o meu lar.
+        <div class="d-flex justify-content-center pt-4">
+            <p>
+                Entre todos os mistérios do universo, o maior deles é como você faz meu coração acelerar só com um sorriso. Quando estou ao seu lado, tudo parece mais leve. Você é o meu lar.
                 <i class="fa-solid fa-heart" style="color: #f20d0d;"></i>
             </p>
         </div>
-
     </main>
 
-    <!-- JavaScript para atualizar o tempo -->
     <script>
         function updateTime() {
-            const startDate = new Date('2023-09-12T00:00:00'); // Definido para 12 de setembro de 2023
+            const startDate = new Date('2023-09-12T00:00:00'); // Data de início
             const now = new Date();
             const diff = now - startDate;
 
-            // Converte a diferença para unidades de tempo
+            // Calcula a diferença em unidades de tempo
             const seconds = Math.floor(diff / 1000);
             const minutes = Math.floor(seconds / 60);
             const hours = Math.floor(minutes / 60);
@@ -94,14 +129,17 @@
 
             // Atualiza o conteúdo do contador
             document.getElementById('time-counter').innerHTML = `
-                ${years} ano, 
-                ${months % 12} mês, 
-                ${days % 30} dias, 
-                ${hours % 24} horas, 
-                ${minutes % 60} minutos e 
+                ${years} ano,
+                ${months % 12} mês,
+                ${days % 30} dias,
+                ${hours % 24} horas,
+                ${minutes % 60} minutos e
                 ${seconds % 60} segundos
             `;
         }
+
+        // Atualiza o tempo a cada segundo
+        setInterval(updateTime, 1000);
 
         // Função para criar um coração animado
         function createHeart() {
@@ -125,29 +163,8 @@
             }
         }
 
-        // Função para alternar entre as imagens
-        function switchImage() {
-            const image = document.getElementById('main-image');
-            const images = ['img/03.jpg', 'img/02.jpg']; // Array de imagens
-
-            let currentIndex = 0; // Índice atual da imagem
-
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % images.length; // Alterna entre 0 e 1
-                image.src = images[currentIndex]; // Troca a imagem
-                generateHearts(); // Dispara a animação dos corações a cada troca de imagem
-            }, 5000); // Alterna a cada 5 segundos
-        }
-
-        // Atualiza o tempo a cada segundo
-        setInterval(updateTime, 1000);
-
-        // Carrega a contagem de tempo e inicia a alternância de imagens
-        window.onload = function () {
-            updateTime(); // Atualiza o contador imediatamente
-            generateHearts(); // Gera os corações na primeira imagem
-            switchImage(); // Inicia a alternância das imagens
-        };
+        // Chama a função quando a página carregar ou quando desejar
+        generateHearts();
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
