@@ -52,6 +52,7 @@
         img {
             width: 100%;
             height: auto; /* Mantém a proporção da imagem */
+            transition: opacity 1s ease-in-out; /* Transição suave ao trocar de imagem */
         }
 
         /* Estilo do texto */
@@ -89,7 +90,7 @@
         <div class="text-center">
             <div class="image-container">
                 <div id="hearts-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-                <img src="img/03.jpg" class="rounded-3" alt="">
+                <img id="sliding-image" src="img/03.jpg" class="rounded-3" alt="">
             </div>
             <span class="d-block mt-1">Juntos</span>
         </div>
@@ -141,7 +142,25 @@
         // Atualiza o tempo a cada segundo
         setInterval(updateTime, 1000);
 
-        // Função para criar um coração animado
+        // Array de imagens
+        const images = ['img/03.jpg', 'img/02.jpg', 'img/04.jpg']; // Substitua pelas suas imagens
+        let currentIndex = 0;
+
+        // Função para trocar de imagem
+        function changeImage() {
+            const imageElement = document.getElementById('sliding-image');
+            currentIndex = (currentIndex + 1) % images.length; // Loop através das imagens
+            imageElement.style.opacity = 0; // Esconde a imagem
+
+            setTimeout(() => {
+                imageElement.src = images[currentIndex]; // Troca a imagem
+                imageElement.style.opacity = 1; // Mostra a nova imagem
+                generateHearts(); // Gera os corações novamente
+            }, 1000); // Tempo de espera para a transição
+
+        }
+
+        // Gera os corações
         function createHeart() {
             const heart = document.createElement('i');
             heart.classList.add('fa-solid', 'fa-heart', 'heart');
@@ -163,8 +182,12 @@
             }
         }
 
-        // Chama a função quando a página carregar ou quando desejar
-        generateHearts();
+        // Troca a imagem a cada 5 segundos
+        setInterval(changeImage, 5000);
+
+        // Chama a função ao carregar a página
+        updateTime(); // Atualiza o tempo ao carregar a página
+        generateHearts(); // Gera os corações ao carregar a página
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
